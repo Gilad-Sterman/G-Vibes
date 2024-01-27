@@ -6,7 +6,8 @@ export async function getTracks(req, res) {
         const filterBy = {
             txt: req.query.txt || '',
             sortBy: req.query.sortBy || 'title',
-            isfeatured: req.query.isfeatured || null
+            isfeatured: req.query.isfeatured || null,
+            vibe: req.query.vibe || null
         }
         // logger.debug('Getting tracks', filterBy)
         // console.log('Getting tracks', filterBy)

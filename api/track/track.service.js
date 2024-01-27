@@ -13,12 +13,13 @@ export const trackService = {
 }
 
 async function query(filterBy = { txt: '', sortBy: 'title' }) {
-    const { sortBy, isfeatured } = filterBy
+    const { sortBy, isfeatured, vibe } = filterBy
     try {
         const criteria = {
             title: { $regex: filterBy.txt, $options: 'i' }
         }
         if (isfeatured) criteria.isfeatured = true
+        if (vibe) criteria.vibe = vibe
         // if (filterBy.likedByUsers !== 'all') criteria.likedByUsers = { $in: filterBy.likedByUsers }
 
         const collection = await dbService.getCollection('track')
